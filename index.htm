@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>膝關節功能問卷（Chinese KOOS）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    p.description {
+      margin-bottom: 16px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .question {
+      margin-bottom: 16px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .option input {
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #1976d2;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #125a9c;
+    }
+
+    .warning {
+      color: #c62828;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #555;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #333;
+    }
+
+    @media (max-width: 600px) {
+      .options {
+        flex-direction: column;
+      }
+      .option {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>膝關節功能問卷（Chinese KOOS）</h1>
+  <p class="description">
+    這個調查會詢問一些關於你的膝關節問題。請根據你過去一星期的情況，在每一題中選擇一個最合適的答案。
+  </p>
+
+  <!-- 第一部分：疼痛 -->
+  <h2>第一部分：疼痛（KOOS-KP）</h2>
+
+  <div class="question">
+    <div class="question-title">1. 你多常感到膝痛？</div>
+    <div class="options">
+      <label class="option"><input type="radio" name="q1" value="0">從不</label>
+      <label class="option"><input type="radio" name="q1" value="1">每月一次</label>
+      <label class="option"><input type="radio" name="q1" value="2">每週一次</label>
+      <label class="option"><input type="radio" name="q1" value="3">每日一次</label>
+      <label class="option"><input type="radio" name="q1" value="4">經常</label>
+    </div>
+  </div>
+
+  <p>過去一星期，你在進行以下活動時會感到什麼程度的疼痛？</p>
+
+  <div id="questions"></div>
+
+  <button onclick="calculateKOOS()">
