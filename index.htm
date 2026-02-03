@@ -30,21 +30,6 @@
   <h1>膝關節功能問卷（Chinese Short KOOS）</h1>
   <p>請根據你過去一星期的情況，在每一題中選擇一個最合適的答案。</p>
 
-  <button onclick="calculateKOOS()">計算分數</button>
-  <div id="warning" class="warning"></div>
-</div>
-
-<div id="scoreModal" class="modal">
-  <div class="modal-content">
-    <h2>膝關節問卷結果</h2>
-    <p id="kpScore"></p>
-    <p id="kpsScore"></p>
-    <p id="kqScore"></p>
-    <p style="font-size:0.9rem;color:#555;">0 分＝極度問題，100 分＝沒有問題</p>
-    <button class="close-btn" onclick="closeModal()">關閉</button>
-  </div>
-</div>
-
 <script>
 const questions = [
   "1. 你多常感到膝痛？",
@@ -139,7 +124,20 @@ function calculateKOOS() {
 
   document.getElementById("scoreModal").style.display = "block";
 }
+  <button onclick="calculateKOOS()">計算分數</button>
+  <div id="warning" class="warning"></div>
+</div>
 
+<div id="scoreModal" class="modal">
+  <div class="modal-content">
+    <h2>膝關節問卷結果</h2>
+    <p id="kpScore"></p>
+    <p id="kpsScore"></p>
+    <p id="kqScore"></p>
+    <p style="font-size:0.9rem;color:#555;">0 分＝極度問題，100 分＝沒有問題</p>
+    <button class="close-btn" onclick="closeModal()">關閉</button>
+  </div>
+</div>
 function closeModal() {
   document.getElementById("scoreModal").style.display = "none";
 }
